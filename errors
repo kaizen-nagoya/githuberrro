@@ -1,0 +1,37 @@
+# 1
+There was an error committing your changes: kaizen-nagoya has committed since you started editing. See what changed
+
+## with ChatGPT
+### Request
+Github said "There was an error committing your changes: kaizen-nagoya has committed since you started editing."  There are no reason because I just adding few words about AI.
+### Answer by ChaatGPT
+This GitHub message usually means **your local/browser edit was based on an older version of the file**, even if you only added a few words. GitHub detected that **another commit occurred after you opened the editor**, so it prevents overwriting newer changes.
+Even if **you** are the only person editing, this can happen in several situations:
+## ✅ Common Reasons (Even When You Think No One Else Edited)
+### **1. You opened the GitHub web editor, then made a commit in another tab/window**
+* If you had multiple browser tabs open, one might have auto-saved or committed earlier.
+### **2. GitHub automatically updated the branch (e.g., dependabot or GitHub Actions)**
+* Even small automated commits count as “someone else committed.”
+### **3. You opened the editor long ago, and the file was updated since**
+* GitHub keeps the older snapshot until you reload the page.
+### **4. You are editing from a fork and GitHub updated the base repo**
+* Even if you only add a few words, GitHub sees a version mismatch.
+## ✅ How to Fix the Issue (Web UI)
+### **Method A: Refresh and Reapply Changes (Fastest)**
+1. Copy your edits to clipboard.
+2. Refresh the GitHub page (so it loads the newest version).
+3. Re-paste your added text.
+4. Commit again.
+### **Method B: Use “Resolve conflicts” (if GitHub shows a conflict button)**
+* GitHub will show both versions, and you can keep your version + newest one.
+### **Method C: Edit the file from the latest commit manually**
+1. Open the file → click *• • •* → *View file* (shows the latest version)
+2. Click **Edit this file**
+3. Apply your changes
+4. Commit
+## ✅ How to Avoid It in the Future
+* Don’t keep the web editor tab open for long periods.
+* Before editing, reload the page once.
+* Avoid multiple browser tabs editing the same file.
+* If you use GitHub Desktop or CLI, always `git pull` before editing.
+If you want, you can paste the exact steps you took (e.g., "I opened page → edited → clicked commit"), and I can diagnose exactly which case applies.
