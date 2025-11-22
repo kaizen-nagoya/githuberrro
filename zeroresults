@@ -1,0 +1,121 @@
+
+0 results for repositories matching software sorted by last updated
+## Request
+Github said "results for repositories matching software sorted by last updated" . But There are SfftowareFactory item are here in https://github.com/kaizen-nagoya such as https://github.com/kaizen-nagoya/EngineerTraining/blob/main/SoftwareFactory. Why it is happend.
+## Answer by ChatGPT
+GitHub’s message:
+
+> **“results for repositories matching *software* sorted by last updated”**
+
+means:
+
+**GitHub is searching *repository names*, *descriptions*, and *topics* — NOT file names inside repositories.**
+
+Your repository contains a file named:
+
+```
+EngineerTraining/SoftwareFactory
+```
+
+but the **repository itself** is *not* called “Software” and does *not* contain “software” in its name, description, or topics.
+
+Therefore:
+
+### ✅ **`SoftwareFactory` appears in the *files* of your repo**
+
+* e.g.,
+  `https://github.com/kaizen-nagoya/EngineerTraining/blob/main/SoftwareFactory`
+
+### ❌ **But GitHub’s repository search does NOT search inside file names**
+
+* So your repository **won’t be listed** when searching repositories for “software”.
+
+---
+
+# ✔ Why it happens
+
+GitHub’s **search bar at the top** performs repository search like this:
+
+* Looks for text in:
+
+  * **Repository names**
+  * **Repository descriptions**
+  * **Repository topics (tags)**
+* **Does NOT search file names inside repos**
+* **Does NOT search file contents** (unless you explicitly click “Code search”)
+
+So when you search:
+
+```
+software
+```
+
+GitHub shows:
+
+> repositories **matching software**
+
+Your repo **EngineerTraining** does not match because:
+
+* Name: `EngineerTraining` → does not contain “software”
+* Description: (likely empty or unrelated)
+* Topics: none contain “software”
+
+So **it is expected behavior**.
+
+---
+
+# ✔ How to make your repository appear in such searches
+
+You have three options:
+
+### **1. Add “software” to the repository description**
+
+Go to your repo → **Settings → General → Description**
+
+Add something like:
+
+```
+Software engineering training materials
+```
+
+### **2. Add “software” as a repository Topic**
+
+Go to the repo → top right area → *“Add topics”*
+
+Add:
+
+```
+software
+software-factory
+software-engineering
+```
+
+### **3. Rename the repository** (optional)
+
+Name it something including “software”:
+
+```
+EngineerTraining-SoftwareFactory
+```
+
+---
+
+# ✔ If you want to search for files instead
+
+Use:
+
+```
+softwarefactory in:path user:kaizen-nagoya
+```
+
+Or GitHub Code Search:
+
+```
+user:kaizen-nagoya SoftwareFactory
+```
+
+This *will* find files inside repositories.
+
+---
+
+If you tell me **what exactly you want to appear in search results**, I can suggest the simplest way to adjust your repo.
