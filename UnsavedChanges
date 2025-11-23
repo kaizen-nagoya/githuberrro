@@ -1,0 +1,230 @@
+# unsaved changes
+
+## Request
+Github said "You have unsaved changes. Do you want to discard them?" What happens when Github says so?
+## Answer by CHatGPT
+When GitHub shows the message:
+> **“You have unsaved changes. Do you want to discard them?”**
+it means **the page you are on contains edits or actions that you have not saved yet**, and GitHub is warning you that leaving the page will **erase those changes permanently**.
+Here is what happens depending on your choice:
+# ✅ If you click **“Discard” / “Leave Page”**
+* All your unsaved edits are **lost**.
+* GitHub returns to the previous page or reloads the current page.
+* You **cannot recover** the text once discarded (unless you copied it manually).
+# ✅ If you click **“Stay on Page”**
+* You remain on the page *with your unsaved edits preserved*.
+* You can:
+  * continue editing
+  * save (commit) your changes
+  * copy them before leaving
+# 🔍 Why GitHub shows this warning
+GitHub triggers this when:
+* You are editing a **file** (web editor)
+* You are writing an **issue**, **pull request**, or **comment**
+* You are editing a **wiki page**
+* You are configuring **settings** and haven’t clicked “Save”
+This is a browser-level warning GitHub activates when it detects:
+* unsubmitted form data
+* unsaved content in the text editor
+* pending changes that will be lost if you navigate away
+# 💡 Good practice
+Before leaving the page:
+* **Copy your text somewhere** (clipboard or text editor)
+* Or **commit** (save) your changes
+This avoids accidental data loss if your browser refreshes or closes.
+If you want, tell me **where exactly** you saw the warning (file editor, issue, PR, Wiki), and I can explain more precisely what would be lost in that specific case.
+## Request
+Code in main.
+## Answer by CHatGPT
+If you mean **“I was editing code in the `main` branch when GitHub said ‘You have unsaved changes’”**, here is what it means:
+# ✅ What “You have unsaved changes” means when editing code in `main`
+When you edit a file directly in GitHub’s web editor on the **main branch**, GitHub tracks your typing.
+If you try to:
+* refresh the page
+* close the tab
+* switch branches
+* open another file
+* click back
+GitHub shows:
+> **You have unsaved changes. Do you want to discard them?**
+This warning appears **before you commit**, because your edits are only in the browser — not saved to the repository yet.
+# 🔥 **Important: Nothing is saved to the `main` branch until you click “Commit changes”**
+So:
+### If you click **Discard / Leave**
+* Your code edits are **deleted**
+* `main` stays unchanged
+* Nothing is committed
+### If you click **Stay on Page**
+* Your code edits **remain in the editor**
+* You can still commit them to `main`
+* Or copy the text before leaving
+# 🌱 Best practice when editing directly on `main`
+Because `main` is the primary branch:
+### Option A — Commit directly (small edits)
+If the change is simple (typo fix, small text change):
+1. Edit the file
+2. Click **“Commit changes”**
+3. Choose **Commit directly to main**
+### Option B — Use a branch (safer)
+For bigger edits:
+1. Click “Create a new branch for this commit”
+2. Make a pull request
+3. Merge after checking
+This avoids overwriting or conflicting with others’ work (and your own past edits).
+# If you meant something different
+If “Code in main.” was a shorthand for another question (e.g., *“Why am I editing in main?”*, or *“Should I commit to main?”*), tell me and I’ll answer precisely.
+Would you like:
+* How to safely edit `main`?
+* How to avoid this warning?
+* How to fix commit conflicts when editing `main`?
+## Request
+When I add a URL in main. How to fix commit conflicts when editing main?
+## Answer by CHatGPT
+When you add a **URL** (or make any small edit) directly in **main** on GitHub, you can sometimes get a **commit conflict**. This usually happens because **the file changed after you opened it**, so GitHub is protecting the newer content.
+Below is the **clean, simple workflow** to fix the conflict.
+# ✅ **How to Fix Commit Conflicts When Editing `main` (GitHub Web UI)**
+## **Method 1 — Refresh, Re-edit, Commit (simplest)**
+If it's a small edit such as adding a URL:
+1. **Copy your added text** (the URL)
+2. Click Back or Reload → GitHub will show:
+   > “You have unsaved changes”
+3. Click **Leave Page**
+4. The file reloads with the **latest version**
+5. **Edit the file again**, paste your URL
+6. Click **Commit changes → Commit directly to main**
+This resolves 90% of web-editor conflicts.
+# ✅ **Method 2 — Use GitHub’s "Resolve conflicts"**
+If GitHub detects a real conflict, it shows a message:
+> **This branch has conflicts that must be resolved**
+Steps:
+1. Click **Resolve conflicts**
+2. GitHub shows both versions:
+```
+   <<<<<<< main
+   (your version)
+   =======
+   (newest version)
+   >>>>>>> updated
+```
+3. Edit the block so it contains the correct final text
+4. Click **Mark as resolved**
+5. Commit the merge
+# ✅ **Method 3 — Create a Branch (safer, no conflicts)**
+Instead of editing `main`:
+1. Open the file → click **Edit**
+2. Make your change
+3. In the commit box:
+   ✔ Select **“Create a new branch for this commit”**
+4. Submit a pull request
+5. Merge it into `main`
+Because the branch is based on the latest commit, there are **no conflicts**.
+# ✅ **Why conflicts happen when adding a URL**
+Even if you touch only one line:
+* Someone (or you in another tab) committed a change to the same file
+* GitHub Actions or Dependabot updated the repo
+* You edited the file from an **old page view**
+* You opened the editor, then returned an hour later (file changed during that time)
+GitHub refuses the commit because it could overwrite newer data.
+# 📌 **Preventing Conflicts**
+Do these before editing `main`:
+✔ Refresh the page before clicking “Edit”
+✔ Ensure no other tab is editing the same file
+✔ Use branches for anything more than a one-line fix
+✔ Pull or reload before committing (if using local git)
+# If you want, tell me:
+* Which file you edited
+* What URL you added
+* Whether GitHub showed “Resolve conflicts” or a different error
+…and I can walk you through the exact fix for your situation.
+## Request
+Next, Gidhub said "There was an error committing your changes: kaizen-nagoya has committed since you started editing. See what changed." I am kaizen-nagoya.
+## Answer by CHatGPT
+This message:
+> **“There was an error committing your changes: kaizen-nagoya has committed since you started editing. See what changed.”**
+means:
+### ✔ GitHub is telling you:
+**“The file has changed *after* you opened the editor. Your edit is based on an old version, so we cannot commit it.”**
+Even though **you** are kaizen-nagoya, GitHub treats this the same as “someone else changed the file.”
+This happens frequently with the GitHub web editor.
+Let me explain clearly **why it happens** and **how to fix it immediately.**
+# ✅ Why it happens (even if *you* made the commit)
+GitHub triggers this error when:
+### **1. You opened the file editor in one tab**
+…and then **made another commit in a different tab** or earlier.
+When you return to the old tab and try to commit, GitHub says:
+* “That file is outdated.”
+* “Newer commits exist.”
+### **2. GitHub auto-updated something**
+Examples:
+* Dependabot created a commit
+* GitHub Actions modified files
+* You updated README or another file in the same repo
+* You edited the same file 20 minutes earlier in another tab
+### **3. You edited an old cached page**
+Sometimes browsers keep an older version of the page.
+GitHub compares it to the latest version → conflict.
+# ✅ How to fix it (step by step, simplest way)
+### **Step 1 — Copy your new text**
+Copy your URL, sentence, or edits.
+### **Step 2 — Refresh the page**
+This loads the newest version.
+### **Step 3 — Click “Edit this file” again**
+### **Step 4 — Paste your changes and commit again**
+This solves the problem in almost every case.
+# ✅ Alternative fix (if GitHub shows conflict UI)
+Sometimes GitHub gives a link:
+> **“See what changed.”**
+If you click it, GitHub shows the diff.
+Then use:
+### **“Edit file → Try again”**
+or
+### **“Resolve conflicts”** (if available)
+# 🔥 If you want to avoid this problem in the future
+### Best practice:
+👉 **Do not keep GitHub web editor open more than a few minutes.**
+👉 **Do not edit multiple tabs of the same repo at once.**
+👉 **Refresh before editing.**
+If you do longer edits, use branches:
+1. Edit file
+2. Choose: **“Create new branch for this commit”**
+3. Make a PR
+4. Merge
+Branches avoid this “someone committed after you” error completely.
+# If you want, tell me:
+* The repository name
+* The file you were editing
+* Whether this happened multiple times
+…I can tell you the exact cause and help you prevent it.
+## Request
+https://github.com/kaizen-nagoya/githuberrro/blob/main/errors and/or https://github.com/kaizen-nagoya/githuberrro/blob/main/zeroresults.
+## Answer by CHatGPT
+Thanks for sharing those links. If I understand correctly: you edited a file on branch **main** in your repo githuberrro (user “kaizen‑nagoya”), and then got the error:
+> “There was an error committing your changes: kaizen-nagoya has committed since you started editing. See what changed.”
+Here’s what likely happened and how to proceed, with details customized for your repo.
+## 🔍 What likely happened in your case
+* You opened one of the files: either `errors` or `zeroresults` (you linked both) under `main`.
+* While you were editing, *another commit* was pushed to `main`. That commit could have been by you (in another window/tab), a workflow/automation, or any contributor.
+* Because the file you opened became **out-of-date**, GitHub blocked your new commit to avoid overwriting changes you didn’t see.
+* The message “See what changed” invites you to check the diff of what was added in the meantime.
+## ✅ How to fix it step-by-step for your repo
+Here’s a safe sequence:
+1. **Copy your pending edits** (the URL you wanted to add) from the editor.
+2. Click the link **“See what changed”** (if displayed) to view the diff of new changes to the file.
+3. Close the editor (you may get the “You have unsaved changes” warning) — choose to stay, copy, then leave or discard.
+4. Reload the file in `main` (go to the repo → main branch → file).
+5. Click **Edit this file** again.
+6. Paste your URL/add your changes.
+7. In the commit area, ensure it says “Commit directly to the main branch”.
+8. Commit the change.
+This way your edit is based on the latest version, so no conflict.
+## 🛡 Additional suggestions
+* If you expect you’ll make many edits (or large ones), consider **creating a branch** instead of editing `main` directly.
+* Always **reload the file before editing** if you had it open for some time.
+* Check if any **automated workflow** (e.g., CI, bot) might be committing to the same file/branch unbeknownst to you, causing updates while you edit.
+If you like, I can **check the commit history** for your repo and show exactly which commit happened after you opened the file (so you can see what changed). Would you like me to do that?
+## Request
+please.
+## Answer by CHatGPT
+I was unable to locate a **recent commit** to the file(s) in question in your repo githuberrro (under user kaizen‑nagoya) that clearly shows exactly *after you started editing* and before your attempted commit.
+Would you like me to check with a more detailed filter (e.g., time-stamp, branch history) so we can pinpoint the exact commit that caused the “committed since you started editing” message?
+
